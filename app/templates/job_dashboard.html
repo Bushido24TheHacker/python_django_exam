@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+</head>
+
+<body class="container">
+    <div class="row">
+        <h1>Hello {{user.first_name}}</h1>
+
+        <div class="nav_bar">
+            <a href="/logout">Logout</a>
+
+            <a class="make_wish_button" href="/jobs/new">new job</a>
+
+
+
+            </tbody>
+
+            </table>
+        </div>
+        <!-- Your wishes div end----- -->
+
+
+        <div>
+            <table>
+
+                <table>
+                    <th>
+                        <tr>
+                            <td>title</td>
+                            <td>description</td>
+                            <td>location</td>
+
+                            <td>actions</td>
+                        </tr>
+                    </th>
+
+
+
+
+                    <tbody>
+                        {% for job in jobs_to_add %}
+                        <tr>
+                            <td>{{job.title}}</td>
+                            <td>{{job.description}}</td>
+                            <td>{{job.location}}</td>
+                            <td><a href="/jobs/{{job.id}}">view</a></td>
+
+                            {% if user == job.user %}
+                            <td>
+                                <a href="/remove_job/{{job.id}}">Remove</a>
+                            <td>
+                                <a href="/jobs/edit/{{job.id}}">Edit</a>
+                            </td>
+
+                            </td>
+
+
+                            {% endif %}
+
+
+
+                            <td><a href="/jobs/{{job.id}}/toggle_status">add</a></td>
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <h2>jobs</h2>
+                <table>
+                    <th>
+                        <tr>
+                            <td>title</td>
+                            <td>description</td>
+                            <td>location</td>
+                            <td>add</td>
+                        </tr>
+                    </th>
+
+                    <tbody>
+                        {% for job in jobs_to_remove %}
+                        <tr>
+                            <td>{{job.title}}</td>
+                            <td>{{job.description}}</td>
+                            <td>{{job.location}}</td>
+
+                            <td><a href="/jobs/{{job.id}}">view</a></td>
+                            <td>
+                                <a href="/remove_job/{{job.id}}">Done</a>
+                            </td>
+                            <td><a href="/jobs/{{job.id}}/toggle_status">Give up</a></td>
+                        </tr>
+                        {% endfor %}
+
+
+
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+
+
+
+
+        </div>
+        <!-- class row end -->
+    </div>
+    <!-- div container end -->
+    <!-- granted wishes end----- -->
+
+</body>
+
+</html>

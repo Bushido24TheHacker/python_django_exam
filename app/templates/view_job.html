@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div class="row">
+        <h1>Hello {{user.first_name}}</h1>
+
+        <div class="nav_bar">
+
+
+            <a class="make_wish_button" href="/dashboard">Dasboard</a>
+            <a href="/logout">Logout</a>
+
+
+
+        </div>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>{{job.title}}</td>
+                    <td>{{job.description}}</td>
+                    <td>{{job.location}}</td>
+                    <td>{{user.first_name}}</td>
+                    <td>{{job.created_at}}</td>
+                    <td style="color: purple;"> Category: {{job.category}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+</body>
+
+</html>
